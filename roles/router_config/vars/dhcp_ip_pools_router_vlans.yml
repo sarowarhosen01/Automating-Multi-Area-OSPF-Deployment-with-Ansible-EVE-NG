@@ -1,0 +1,277 @@
+---
+dhcp_ip_pools_router_vlans:
+
+  R1:
+    - name: VLAN10_IT_POOL
+      network: 192.168.1.0
+      subnet_mask: 255.255.255.240
+      default_router: 192.168.1.1
+      dns_servers: [8.8.8.8, 8.8.4.4]
+      excluded_start: 192.168.1.4
+      excluded_end: 192.168.1.14
+      lease_days: 7
+
+    - name: VLAN20_HR_POOL
+      network: 192.168.1.16
+      subnet_mask: 255.255.255.240
+      default_router: 192.168.1.17
+      dns_servers: [8.8.8.8, 8.8.4.4]
+      excluded_start: 192.168.1.19
+      excluded_end: 192.168.1.29
+      lease_days: 7
+
+    - name: VLAN30_FINANCE_POOL
+      network: 192.168.1.32
+      subnet_mask: 255.255.255.240
+      default_router: 192.168.1.33
+      dns_servers: [8.8.8.8, 8.8.4.4]
+      excluded_start: 192.168.1.35
+      excluded_end: 192.168.1.45
+      lease_days: 7
+
+    - name: VLAN40_HR_POOL
+      network: 192.168.1.48
+      subnet_mask: 255.255.255.240
+      default_router: 192.168.1.49
+      dns_servers: [8.8.8.8, 8.8.4.4]
+      excluded_start: 192.168.1.52
+      excluded_end: 192.168.1.62
+      lease_days: 7
+
+    - name: VLAN50_WIFI_POOL
+      network: 192.168.1.64
+      subnet_mask: 255.255.255.240
+      default_router: 192.168.1.65
+      dns_servers: [8.8.8.8, 8.8.4.4]
+      excluded_start: 192.168.1.68
+      excluded_end: 192.168.1.78
+      lease_days: 7
+
+    - name: VLAN60_SERVICE_POOL
+      network: 192.168.1.80
+      subnet_mask: 255.255.255.240
+      default_router: 192.168.1.81
+      dns_servers: [8.8.8.8, 8.8.4.4]
+      excluded_start: 192.168.1.83
+      excluded_end: 192.168.1.93
+      lease_days: 7
+
+  R2:
+    - name: VLAN10_IT_POOL
+      network: 192.168.2.0
+      subnet_mask: 255.255.255.240
+      default_router: 192.168.2.1
+      dns_servers: [8.8.8.8, 8.8.4.4]
+      excluded_start: 192.168.2.4
+      excluded_end: 192.168.2.14
+      lease_days: 7
+
+    - name: VLAN20_HR_POOL
+      network: 192.168.2.16
+      subnet_mask: 255.255.255.240
+      default_router: 192.168.2.17
+      dns_servers: [8.8.8.8, 8.8.4.4]
+      excluded_start: 192.168.2.19
+      excluded_end: 192.168.2.29
+      lease_days: 7
+
+    - name: VLAN30_FINANCE_POOL
+      network: 192.168.2.32
+      subnet_mask: 255.255.255.240
+      default_router: 192.168.2.33
+      dns_servers: [8.8.8.8, 8.8.4.4]
+      excluded_start: 192.168.2.35
+      excluded_end: 192.168.2.45
+      lease_days: 7
+
+    - name: VLAN40_HR_POOL
+      network: 192.168.2.48
+      subnet_mask: 255.255.255.240
+      default_router: 192.168.2.49
+      dns_servers: [8.8.8.8, 8.8.4.4]
+      excluded_start: 192.168.2.52
+      excluded_end: 192.168.2.62
+      lease_days: 7
+
+    - name: VLAN50_WIFI_POOL
+      network: 192.168.2.64
+      subnet_mask: 255.255.255.240
+      default_router: 192.168.2.65
+      dns_servers: [8.8.8.8, 8.8.4.4]
+      excluded_start: 192.168.2.68
+      excluded_end: 192.168.2.78
+      lease_days: 7
+
+    - name: VLAN60_SERVICE_POOL
+      network: 192.168.2.80
+      subnet_mask: 255.255.255.240
+      default_router: 192.168.2.81
+      dns_servers: [8.8.8.8, 8.8.4.4]
+      excluded_start: 192.168.2.83
+      excluded_end: 192.168.2.93
+      lease_days: 7
+
+  R3:
+    - name: VLAN10_IT_POOL
+      network: 192.168.3.0
+      subnet_mask: 255.255.255.240
+      default_router: 192.168.3.1
+      dns_servers: [8.8.8.8, 8.8.4.4]
+      excluded_start: 192.168.3.4
+      excluded_end: 192.168.3.14
+      lease_days: 7
+
+    - name: VLAN20_HR_POOL
+      network: 192.168.3.16
+      subnet_mask: 255.255.255.240
+      default_router: 192.168.3.17
+      dns_servers: [8.8.8.8, 8.8.4.4]
+      excluded_start: 192.168.3.19
+      excluded_end: 192.168.3.29
+      lease_days: 7
+
+    - name: VLAN30_FINANCE_POOL
+      network: 192.168.3.32
+      subnet_mask: 255.255.255.240
+      default_router: 192.168.3.33
+      dns_servers: [8.8.8.8, 8.8.4.4]
+      excluded_start: 192.168.3.35
+      excluded_end: 192.168.3.45
+      lease_days: 7
+
+    - name: VLAN40_HR_POOL
+      network: 192.168.3.48
+      subnet_mask: 255.255.255.240
+      default_router: 192.168.3.49
+      dns_servers: [8.8.8.8, 8.8.4.4]
+      excluded_start: 192.168.3.52
+      excluded_end: 192.168.3.62
+      lease_days: 7
+
+    - name: VLAN50_WIFI_POOL
+      network: 192.168.3.64
+      subnet_mask: 255.255.255.240
+      default_router: 192.168.3.65
+      dns_servers: [8.8.8.8, 8.8.4.4]
+      excluded_start: 192.168.3.68
+      excluded_end: 192.168.3.78
+      lease_days: 7
+
+    - name: VLAN60_SERVICE_POOL
+      network: 192.168.3.80
+      subnet_mask: 255.255.255.240
+      default_router: 192.168.3.81
+      dns_servers: [8.8.8.8, 8.8.4.4]
+      excluded_start: 192.168.3.83
+      excluded_end: 192.168.3.93
+      lease_days: 7
+
+  R4:
+    - name: VLAN10_IT_POOL
+      network: 192.168.4.0
+      subnet_mask: 255.255.255.240
+      default_router: 192.168.4.1
+      dns_servers: [8.8.8.8, 8.8.4.4]
+      excluded_start: 192.168.4.4
+      excluded_end: 192.168.4.14
+      lease_days: 7
+
+    - name: VLAN20_HR_POOL
+      network: 192.168.4.16
+      subnet_mask: 255.255.255.240
+      default_router: 192.168.4.17
+      dns_servers: [8.8.8.8, 8.8.4.4]
+      excluded_start: 192.168.4.19
+      excluded_end: 192.168.4.29
+      lease_days: 7
+
+    - name: VLAN30_FINANCE_POOL
+      network: 192.168.4.32
+      subnet_mask: 255.255.255.240
+      default_router: 192.168.4.33
+      dns_servers: [8.8.8.8, 8.8.4.4]
+      excluded_start: 192.168.4.35
+      excluded_end: 192.168.4.45
+      lease_days: 7
+
+    - name: VLAN40_HR_POOL
+      network: 192.168.4.48
+      subnet_mask: 255.255.255.240
+      default_router: 192.168.4.49
+      dns_servers: [8.8.8.8, 8.8.4.4]
+      excluded_start: 192.168.4.52
+      excluded_end: 192.168.4.62
+      lease_days: 7
+
+    - name: VLAN50_WIFI_POOL
+      network: 192.168.4.64
+      subnet_mask: 255.255.255.240
+      default_router: 192.168.4.65
+      dns_servers: [8.8.8.8, 8.8.4.4]
+      excluded_start: 192.168.4.68
+      excluded_end: 192.168.4.78
+      lease_days: 7
+
+    - name: VLAN60_SERVICE_POOL
+      network: 192.168.4.80
+      subnet_mask: 255.255.255.240
+      default_router: 192.168.4.81
+      dns_servers: [8.8.8.8, 8.8.4.4]
+      excluded_start: 192.168.4.83
+      excluded_end: 192.168.4.93
+      lease_days: 7
+
+  R5:
+    - name: VLAN10_IT_POOL
+      network: 192.168.5.0
+      subnet_mask: 255.255.255.240
+      default_router: 192.168.5.1
+      dns_servers: [8.8.8.8, 8.8.4.4]
+      excluded_start: 192.168.5.4
+      excluded_end: 192.168.5.14
+      lease_days: 7
+
+    - name: VLAN20_HR_POOL
+      network: 192.168.5.16
+      subnet_mask: 255.255.255.240
+      default_router: 192.168.5.17
+      dns_servers: [8.8.8.8, 8.8.4.4]
+      excluded_start: 192.168.5.19
+      excluded_end: 192.168.5.29
+      lease_days: 7
+
+    - name: VLAN30_FINANCE_POOL
+      network: 192.168.5.32
+      subnet_mask: 255.255.255.240
+      default_router: 192.168.5.33
+      dns_servers: [8.8.8.8, 8.8.4.4]
+      excluded_start: 192.168.5.35
+      excluded_end: 192.168.5.45
+      lease_days: 7
+
+    - name: VLAN40_HR_POOL
+      network: 192.168.5.48
+      subnet_mask: 255.255.255.240
+      default_router: 192.168.5.49
+      dns_servers: [8.8.8.8, 8.8.4.4]
+      excluded_start: 192.168.5.52
+      excluded_end: 192.168.5.62
+      lease_days: 7
+
+    - name: VLAN50_WIFI_POOL
+      network: 192.168.5.64
+      subnet_mask: 255.255.255.240
+      default_router: 192.168.5.65
+      dns_servers: [8.8.8.8, 8.8.4.4]
+      excluded_start: 192.168.5.68
+      excluded_end: 192.168.5.78
+      lease_days: 7
+
+    - name: VLAN60_SERVICE_POOL
+      network: 192.168.5.80
+      subnet_mask: 255.255.255.240
+      default_router: 192.168.5.81
+      dns_servers: [8.8.8.8, 8.8.4.4]
+      excluded_start: 192.168.5.83
+      excluded_end: 192.168.5.93
+      lease_days: 7

@@ -1,0 +1,52 @@
+# Vlans
+--- 
+vlans:
+  - vlan_id: 10
+    name: IT 
+  - vlan_id: 20
+    name: HR 
+  - vlan_id: 30
+    name: FINANCE 
+  - vlan_id: 40
+    name: HUMAN_RESOURCE 
+  - vlan_id: 50 
+    name: WIFI
+  - vlan_id: 60
+    name: SERVICE 
+  
+
+switch_interfaces:
+  - name: GigabitEthernet0/0
+    mode: trunk
+    description: TRUNK_TO_ROUTER
+    allowed_vlans: "10,20,30,40,50"
+    trunk_native_vlan: 1
+
+  - name: GigabitEthernet0/1
+    mode: access
+    description: ACCESS_PORT_VLAN10
+    access_vlan: 10
+
+  - name: GigabitEthernet0/2
+    mode: access
+    description: ACCESS_PORT_VLAN20
+    access_vlan: 20
+
+  - name: GigabitEthernet0/3
+    mode: access
+    description: ACCESS_PORT_VLAN30
+    access_vlan: 30
+
+  - name: GigabitEthernet1/0
+    mode: access
+    description: ACCESS_PORT_VLAN40
+    access_vlan: 40
+
+  - name: GigabitEthernet1/1
+    mode: access
+    description: ACCESS_PORT_VLAN50
+    access_vlan: 50
+  - name: GigabitEthernet1/2
+    mode: access
+    description: ACCESS_PORT_VLAN60
+    access_vlan: 50

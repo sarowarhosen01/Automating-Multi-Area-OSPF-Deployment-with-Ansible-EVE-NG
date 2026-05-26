@@ -1,0 +1,149 @@
+---
+# -------------------------
+# LOAD VARIABLES
+# -------------------------
+
+- name: Load router interface vars
+  include_vars:
+    file: "{{ role_path }}/vars/router_to_sw_interfaces.yml"
+
+- name: Load VLAN vars
+  include_vars:
+    file: "{{ role_path }}/vars/router_Vlan_subinterface.yml"
+
+- name: Load DHCP vars
+  include_vars:
+    file: "{{ role_path }}/vars/dhcp_ip_pools_router_vlans.yml"
+
+- name: Load interface IP vars
+  include_vars:
+    file: "{{ role_path }}/vars/assin_ip_add_interface.yml"
+
+- name: Load tunnel interface data
+  include_vars:
+    file: "{{ role_path }}/vars/tunnel_interface_config.yml"
+
+- name: Load OSPF vars
+  include_vars:
+    file: "{{ role_path }}/vars/ospf.yml"
+
+
+# -------------------------
+# HOSTNAME
+# -------------------------
+
+- name: Configure hostname
+  cisco.ios.ios_config:
+    lines:
+      - hostname {{ inventory_hostname }}
+
+
+# -------------------------
+# INTERFACES
+# -------------------------
+
+- name: Configure interfaces For subinterfaces
+  cisco.ios.ios_config:
+    parents: "interface {{ item.name }}"
+    lines:
+      - description {{ item.description }}
+      - no shutdown
+  loop: "{{ router_to_sw_interfaces[inventory_hostname] }}"
+
+
+# -------------------------
+# VLAN SUBINTERFACES
+# -------------------------
+
+- name: Configure VLAN subinterfaces
+  cisco.ios.ios_config:
+    parents: "interface GigabitEthernet0/0.{{ item.vlan_id }}"
+    lines:
+      - encapsulation dot1Q {{ item.vlan_id }}
+      - ip address {{ item.ip_address }} {{ item.subnet_mask }}
+      - description VLAN_{{ item.vlan_id }}_{{ item.name }}
+      - no shutdown
+  loop: "{{ router_Vlan_subinterface[inventory_hostname] }}"
+
+
+# -------------------------
+# DHCP EXCLUDED ADDRESSES
+# -------------------------
+
+- name: Configure DHCP Excluded Addresses
+  cisco.ios.ios_config:
+    lines:
+      - ip dhcp excluded-address {{ item.excluded_start }} {{ item.excluded_end }}
+  loop: "{{ dhcp_ip_pools_router_vlans[inventory_hostname] }}"
+
+
+# -------------------------
+# DHCP POOLS
+# -------------------------
+
+- name: Configure DHCP pools
+  cisco.ios.ios_config:
+    parents: "ip dhcp pool {{ item.name }}"
+    lines:
+      - network {{ item.network }} {{ item.subnet_mask }}
+      - default-router {{ item.default_router }}
+      - dns-server {{ item.dns_servers | join(' ') }}
+      - lease {{ item.lease_days }}
+  loop: "{{ dhcp_ip_pools_router_vlans[inventory_hostname] }}"
+
+
+# -------------------------
+# ASSIGN IP IN INTERFACE
+# -------------------------
+
+- name: Configure interface with IP address
+  cisco.ios.ios_config:
+    parents: "interface {{ item.name }}"
+    lines:
+      - ip address {{ item.ip_address }} {{ item.netmask }}
+      - no shutdown
+  loop: "{{ assin_ip_add_interface[inventory_hostname] }}"
+
+
+# -------------------------
+# TUNNEL CONFIGURATION
+# -------------------------
+
+- name: Configure tunnel interface
+  cisco.ios.ios_config:
+    parents: "interface {{ item.name }}"
+    lines:
+      - ip address {{ item.ip_address }} {{ item.netmask }}
+      - no shutdown
+      - tunnel source {{ item.tunnel_source }}
+      - tunnel destination {{ item.tunnel_destination }}
+  loop: "{{ tunnel_interface_config[inventory_hostname] }}"
+
+
+# -------------------------
+# OSPF CONFIGURATION
+# -------------------------
+
+- name: Configure OSPF routing
+  cisco.ios.ios_config:
+    lines:
+      - router ospf {{ ospf_config[inventory_hostname].process_id }}
+      - router-id {{ ospf_config[inventory_hostname].router_id }}
+
+
+- name: Advertise networks in OSPF
+  cisco.ios.ios_config:
+    parents: "router ospf {{ ospf_config[inventory_hostname].process_id }}"
+    lines: |
+      {% for net in ospf_config[inventory_hostname].networks %}
+      network {{ net.network }} {{ net.wildcard }} area {{ net.area }}
+      {% endfor %}
+
+
+# -------------------------
+# SAVE CONFIG
+# -------------------------
+
+- name: Save configuration
+  cisco.ios.ios_config:
+    save_when: always

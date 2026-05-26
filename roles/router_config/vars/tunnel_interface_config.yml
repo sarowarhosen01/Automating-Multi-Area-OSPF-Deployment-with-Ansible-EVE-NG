@@ -1,0 +1,17 @@
+---
+tunnel_interface_config:
+  R1: []
+  R3: []
+  R5: []
+  R2:
+    - name: tunnel1
+      ip_address : 192.168.100.1
+      netmask: 255.255.255.0
+      tunnel_source : g0/1
+      tunnel_destination: 192.168.30.2
+  R4:
+    - name: tunnel1
+      ip_address : 192.168.100.2
+      netmask: 255.255.255.0
+      tunnel_source : g0/2
+      tunnel_destination: 192.168.20.1

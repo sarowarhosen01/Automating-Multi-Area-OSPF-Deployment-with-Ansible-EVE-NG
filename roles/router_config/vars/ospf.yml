@@ -1,0 +1,72 @@
+---
+ospf_config:
+
+  R1:
+    process_id: 1
+    router_id: 1.1.1.1
+    networks:
+      - network: 192.168.10.0
+        wildcard: 0.0.0.255
+        area: 0
+      - network: 192.168.1.0
+        wildcard: 0.0.0.255
+        area: 0
+
+  R2:
+    process_id: 1
+    router_id: 2.2.2.2
+    networks:
+      - network: 192.168.10.0
+        wildcard: 0.0.0.255
+        area: 0
+      - network: 192.168.20.0
+        wildcard: 0.0.0.255
+        area: 100
+      - network: 192.168.2.0
+        wildcard: 0.0.0.255
+        area: 0
+      - network: 192.168.100.0
+        wildcard: 0.0.0.255
+        area: 0
+
+  R3:
+    process_id: 1
+    router_id: 3.3.3.3
+    networks:
+      - network: 192.168.30.0
+        wildcard: 0.0.0.255
+        area: 100
+      - network: 192.168.20.0
+        wildcard: 0.0.0.255
+        area: 100
+      - network: 192.168.3.0
+        wildcard: 0.0.0.255
+        area: 100
+
+  R4:
+    process_id: 1
+    router_id: 4.4.4.4
+    networks:
+      - network: 192.168.30.0
+        wildcard: 0.0.0.255
+        area: 100
+      - network: 192.168.40.0
+        wildcard: 0.0.0.255
+        area: 200
+      - network: 192.168.4.0
+        wildcard: 0.0.0.255
+        area: 100
+      - network: 192.168.100.0
+        wildcard: 0.0.0.255
+        area: 0
+
+  R5:
+    process_id: 1
+    router_id: 5.5.5.5
+    networks:
+      - network: 192.168.40.0
+        wildcard: 0.0.0.255
+        area: 200
+      - network: 192.168.5.0
+        wildcard: 0.0.0.255
+        area: 200

@@ -1,0 +1,21 @@
+--- 
+router_to_sw_interfaces:
+  R1:
+    - name: GigabitEthernet0/0
+      description: Link to SW1
+
+  R2:
+    - name: GigabitEthernet0/0
+      description: Link to SW2
+
+  R3:
+    - name: GigabitEthernet0/0
+      description: Link to SW3
+
+  R4:
+    - name: GigabitEthernet0/0
+      description: Link to SW4
+
+  R5:
+    - name: GigabitEthernet0/0
+      description: Link to SW5

@@ -1,0 +1,157 @@
+---
+router_Vlan_subinterface:
+
+  R1:
+    - vlan_id: 10
+      name: IT
+      ip_address: 192.168.1.1
+      subnet_mask: 255.255.255.240
+
+    - vlan_id: 20
+      name: HR
+      ip_address: 192.168.1.17
+      subnet_mask: 255.255.255.240
+
+    - vlan_id: 30
+      name: FINANCE
+      ip_address: 192.168.1.33
+      subnet_mask: 255.255.255.240
+
+    - vlan_id: 40
+      name: HR
+      ip_address: 192.168.1.49
+      subnet_mask: 255.255.255.240
+
+    - vlan_id: 50
+      name: WIFI
+      ip_address: 192.168.1.65
+      subnet_mask: 255.255.255.240
+
+    - vlan_id: 60
+      name: SERVICE
+      ip_address: 192.168.1.81
+      subnet_mask: 255.255.255.240
+
+  R2:
+    - vlan_id: 10
+      name: IT
+      ip_address: 192.168.2.1
+      subnet_mask: 255.255.255.240
+
+    - vlan_id: 20
+      name: HR
+      ip_address: 192.168.2.17
+      subnet_mask: 255.255.255.240
+
+    - vlan_id: 30
+      name: FINANCE
+      ip_address: 192.168.2.33
+      subnet_mask: 255.255.255.240
+
+    - vlan_id: 40
+      name: HR
+      ip_address: 192.168.2.49
+      subnet_mask: 255.255.255.240
+
+    - vlan_id: 50
+      name: WIFI
+      ip_address: 192.168.2.65
+      subnet_mask: 255.255.255.240
+
+    - vlan_id: 60
+      name: SERVICE
+      ip_address: 192.168.2.81
+      subnet_mask: 255.255.255.240
+
+  R3:
+    - vlan_id: 10
+      name: IT
+      ip_address: 192.168.3.1
+      subnet_mask: 255.255.255.240
+
+    - vlan_id: 20
+      name: HR
+      ip_address: 192.168.3.17
+      subnet_mask: 255.255.255.240
+
+    - vlan_id: 30
+      name: FINANCE
+      ip_address: 192.168.3.33
+      subnet_mask: 255.255.255.240
+
+    - vlan_id: 40
+      name: HR
+      ip_address: 192.168.3.49
+      subnet_mask: 255.255.255.240
+
+    - vlan_id: 50
+      name: WIFI
+      ip_address: 192.168.3.65
+      subnet_mask: 255.255.255.240
+
+    - vlan_id: 60
+      name: SERVICE
+      ip_address: 192.168.3.81
+      subnet_mask: 255.255.255.240
+
+  R4:
+    - vlan_id: 10
+      name: IT
+      ip_address: 192.168.4.1
+      subnet_mask: 255.255.255.240
+
+    - vlan_id: 20
+      name: HR
+      ip_address: 192.168.4.17
+      subnet_mask: 255.255.255.240
+
+    - vlan_id: 30
+      name: FINANCE
+      ip_address: 192.168.4.33
+      subnet_mask: 255.255.255.240
+
+    - vlan_id: 40
+      name: HR
+      ip_address: 192.168.4.49
+      subnet_mask: 255.255.255.240
+
+    - vlan_id: 50
+      name: WIFI
+      ip_address: 192.168.4.65
+      subnet_mask: 255.255.255.240
+
+    - vlan_id: 60
+      name: SERVICE
+      ip_address: 192.168.4.81
+      subnet_mask: 255.255.255.240
+
+  R5:
+    - vlan_id: 10
+      name: IT
+      ip_address: 192.168.5.1
+      subnet_mask: 255.255.255.240
+
+    - vlan_id: 20
+      name: HR
+      ip_address: 192.168.5.17
+      subnet_mask: 255.255.255.240
+
+    - vlan_id: 30
+      name: FINANCE
+      ip_address: 192.168.5.33
+      subnet_mask: 255.255.255.240
+
+    - vlan_id: 40
+      name: HR
+      ip_address: 192.168.5.49
+      subnet_mask: 255.255.255.240
+
+    - vlan_id: 50
+      name: WIFI
+      ip_address: 192.168.5.65
+      subnet_mask: 255.255.255.240
+
+    - vlan_id: 60
+      name: SERVICE
+      ip_address: 192.168.5.81
+      subnet_mask: 255.255.255.240
